@@ -1,9 +1,7 @@
 package com.riceliker.ExplainMagic.Item;
 
 import com.riceliker.ExplainMagic.Explain_Magic;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -34,17 +32,5 @@ public class ItemRegistry
         registerItem("compressed_bme_core", compressed_bme_core);
         registerItem("enrichment_core", enrichment_core);
         registerItem("mod_icon_item", mod_icon_item);
-
-        addItemsToItemGroups();
     }
-    // <---Set Group On Creative Tab--->
-    private static void addItemsToItemGroups() {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS)
-            .register(entries -> {
-                // Item Add There
-                entries.add(compressed_bme_core);
-                entries.add(enrichment_core);
-            });
-    }
-
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "explain_magic:enrichment_core"
+    }
+  },
+  "result": {
+    "id": "explain_magic:enrichment_core_block",
+    "count": 1
+  }
+}

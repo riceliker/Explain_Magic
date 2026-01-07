@@ -15,6 +15,9 @@
 	"icon": "assets/explain_magic/icon.png",
 	"environment": "*",
 	"entrypoints": {
+		"fabric-datagen": [
+			"com.riceliker.ExplainMagic.ModDataGenerator"
+		],
 		"main": [
 			"com.riceliker.ExplainMagic.Explain_Magic"
 		],
