@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "explain_magic:block/enrichment_core_ore" }
+  }
+}

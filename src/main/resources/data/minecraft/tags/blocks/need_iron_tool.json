@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "explain_magic:enrichment_core_block",
+    "explain_magic:compressed_bme_block",
+    "explain_magic:enrichment_core_ore"
+  ]
+}
