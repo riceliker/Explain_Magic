@@ -20,6 +20,7 @@ public class CreativeTab
                 entries.add(BlockRegistry.enrichment_core_ore.asItem());
                 entries.add(BlockRegistry.enrichment_core_block.asItem());
                 entries.add(BlockRegistry.compressed_bme_block.asItem());
+                entries.add(BlockRegistry.bme_collection_machine.asItem());
             })
             .build();
 

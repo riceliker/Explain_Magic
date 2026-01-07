@@ -2,7 +2,8 @@
   "item.explain_magic.compressed_bme_core": "Compressed BME Core",
   "item.explain_magic.enrichment_core": "Enrichment Core",
   "block.explain_magic.enrichment_core_ore": "Enrichment Core Ore",
-  "block.explain_magic.enrichment_core_block": "",
-  "block.explain_magic.compressed_bme_block": "",
+  "block.explain_magic.enrichment_core_block": "Enrichment Core Block",
+  "block.explain_magic.compressed_bme_block": "Compressed BME Core Block",
+  "block.explain_magic.bme_collection_machine": "BME Collection Machine",
   "itemGroup.explain_magic.custom_tab": "Explain Magic"
 }

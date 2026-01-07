@@ -49,5 +49,10 @@ public class BlockRegistry
             ),
             "compressed_bme_block"
     );
-
+    public static final Block bme_collection_machine = register(
+            new BMECollectionMachine(AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.WOOD)
+                    .strength(1.0F, 3.0F)
+            ), "bme_collection_machine"
+    );
 }

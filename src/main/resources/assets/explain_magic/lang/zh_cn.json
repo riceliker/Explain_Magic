@@ -4,5 +4,6 @@
   "block.explain_magic.compressed_bme_block": "压缩BME核心方块",
   "block.explain_magic.enrichment_core_block": "富集核心方块",
   "block.explain_magic.enrichment_core_ore": "富集核心原矿",
+  "block.explain_magic.bme_collection_machine": "BME收集机器",
   "itemGroup.explain_magic.custom_tab": "解析法术学"
 }
