@@ -1,29 +1,23 @@
 package com.riceliker.ExplainMagic.Block;
 
-import com.mojang.serialization.MapCodec;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.Direction;
 
-public class BMECollectionMachine extends HorizontalFacingBlock
+public class FacingPlayerBlock extends Block
 {
     public static final DirectionProperty facing = Properties.HORIZONTAL_FACING;
-    public BMECollectionMachine(Settings settings)
+    public FacingPlayerBlock(AbstractBlock.Settings settings)
     {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(facing, Direction.NORTH));
     }
 
-    @Override
-    protected MapCodec<? extends HorizontalFacingBlock> getCodec()
-    {
-        return createCodec((java.util.function.Function<Settings, ? extends HorizontalFacingBlock>) BMECollectionMachine::new);
-    }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction playerLook = ctx.getPlayerLookDirection();
@@ -35,4 +29,5 @@ public class BMECollectionMachine extends HorizontalFacingBlock
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(facing);
     }
+
 }

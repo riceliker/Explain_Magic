@@ -8,10 +8,15 @@ import net.minecraft.util.Identifier;
 
 public class ItemRegistry
 {
-    // FUNC: Set Registry To Main Class
+    public ItemRegistry()
+    {
+        // Item Add There
+        registerItem("compressed_bme_core", compressed_bme_core);
+        registerItem("enrichment_core", enrichment_core);
+        registerItem("mod_icon_item", mod_icon_item);
+    }
     private static void registerItem(String name, Item item) {
-        Identifier id = new Identifier(Explain_Magic.MOD_ID, name);
-        Registry.register(Registries.ITEM, id, item);
+        Registry.register(Registries.ITEM, new Identifier(Explain_Magic.MOD_ID, name), item);
     }
     // <---Item Information--->
     // Mod icon item only an image, not an item which you can get.
@@ -26,11 +31,4 @@ public class ItemRegistry
             new Item.Settings()
                     .maxCount(64)
     );
-    // <---Go To Registry--->
-    public static void registerModItems() {
-        // Item Add There
-        registerItem("compressed_bme_core", compressed_bme_core);
-        registerItem("enrichment_core", enrichment_core);
-        registerItem("mod_icon_item", mod_icon_item);
-    }
 }
