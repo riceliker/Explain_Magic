@@ -2,14 +2,15 @@ package com.riceliker.ExplainMagic.Block;
 
 import com.mojang.serialization.MapCodec;
 import com.riceliker.ExplainMagic.BlockEntity.BCMBlockEntity;
+import com.riceliker.ExplainMagic.Network.NetworkRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -62,7 +63,10 @@ public class BCMBlock extends BlockWithEntity {
         if (blockEntity instanceof BCMBlockEntity bcmBlockEntity) {
             //<---Code will run when player right click--->
             bcmBlockEntity.addCustomData(1);
-            player.sendMessage(Text.literal("CustomData: " + bcmBlockEntity.getCustomData()), true);
+            if (player instanceof ServerPlayerEntity serverPlayer) {
+                // HERE => Network
+                NetworkRegistry.sendMessage("BCMGUI",serverPlayer);
+            }
         }
 
         return ActionResult.CONSUME;

@@ -22,7 +22,7 @@
           "com.riceliker.ExplainMagic.ExplainMagic"
 		],
 		"client": [
-			"com.riceliker.ExplainMagic.Explain_MagicClient"
+          "com.riceliker.ExplainMagic.ExplainMagicClient"
 		]
 	},
 	"depends": {
