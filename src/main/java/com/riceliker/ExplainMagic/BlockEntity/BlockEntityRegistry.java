@@ -1,6 +1,6 @@
 package com.riceliker.ExplainMagic.BlockEntity;
 
-import com.riceliker.ExplainMagic.Block.FacingPlayerBlock;
+import com.riceliker.ExplainMagic.Block.BCMBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
@@ -17,10 +17,7 @@ public class BlockEntityRegistry
 {
     public BlockEntityRegistry()
     {
-        registryBlock("bme_collection_machine",bme_block);
-        bme_block_entity_type = BlockEntityType.Builder.create(BCMBlockEntity::new, bme_block).build();
-        Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(MOD_ID, "bme_collection_machine_entity"), bme_block_entity_type);
+        registerBMEBlockEntity();
     }
     public static void registryBlock(String name,Block block)
     {
@@ -28,9 +25,16 @@ public class BlockEntityRegistry
         Registry.register(Registries.ITEM, new Identifier(MOD_ID, name), new BlockItem(block, new Item.Settings()));
     }
     public static final Block bme_block =
-            new FacingPlayerBlock(AbstractBlock.Settings.create()
+            new BCMBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.DRIPSTONE_BLOCK)
                     .strength(1.0F, 3.0F)
             );
     public static BlockEntityType<BCMBlockEntity> bme_block_entity_type;
+    public static void registerBMEBlockEntity()
+    {
+        registryBlock("bme_collection_machine",bme_block);
+        bme_block_entity_type = BlockEntityType.Builder.create(BCMBlockEntity::new, bme_block).build();
+        Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(MOD_ID, "bme_collection_machine_entity"), bme_block_entity_type);
+    }
 }

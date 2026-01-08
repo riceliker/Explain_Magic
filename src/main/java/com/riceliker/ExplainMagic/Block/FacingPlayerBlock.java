@@ -1,6 +1,5 @@
 package com.riceliker.ExplainMagic.Block;
 
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
@@ -9,10 +8,12 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.Direction;
 
+
+// It will be used in the future.
 public class FacingPlayerBlock extends Block
 {
     public static final DirectionProperty facing = Properties.HORIZONTAL_FACING;
-    public FacingPlayerBlock(AbstractBlock.Settings settings)
+    public FacingPlayerBlock(Settings settings)
     {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(facing, Direction.NORTH));
