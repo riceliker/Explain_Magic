@@ -19,7 +19,7 @@
 			"com.riceliker.ExplainMagic.ModDataGenerator"
 		],
 		"main": [
-			"com.riceliker.ExplainMagic.Explain_Magic"
+          "com.riceliker.ExplainMagic.ExplainMagic"
 		],
 		"client": [
 			"com.riceliker.ExplainMagic.Explain_MagicClient"

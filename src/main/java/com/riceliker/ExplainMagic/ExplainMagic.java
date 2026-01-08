@@ -1,17 +1,14 @@
 package com.riceliker.ExplainMagic;
 
 import com.riceliker.ExplainMagic.Block.BlockRegistry;
+import com.riceliker.ExplainMagic.BlockEntity.BlockEntityRegistry;
+import com.riceliker.ExplainMagic.CreativeTab.CreativeTab;
 import com.riceliker.ExplainMagic.Item.ItemRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-
-import static com.riceliker.ExplainMagic.CreativeTab.CreativeTab.creative_tab;
 
 @SuppressWarnings("ALL")
-public class Explain_Magic implements ModInitializer {
+public class ExplainMagic implements ModInitializer {
 	public static final String MOD_ID = "explain_magic";
 
 	private RecipeExporter exporter;
@@ -19,12 +16,11 @@ public class Explain_Magic implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		new BlockRegistry();
+		// All registy will start here
 		new ItemRegistry();
-		//new BlockEntityRegistry();
-		Registry.register(Registries.ITEM_GROUP, new Identifier(Explain_Magic.MOD_ID, "custom_tab"), creative_tab);
-
-
+		new BlockRegistry();
+		new BlockEntityRegistry();
+		new CreativeTab();
 
 
 	}

@@ -1,6 +1,6 @@
 package com.riceliker.ExplainMagic.Item;
 
-import com.riceliker.ExplainMagic.Explain_Magic;
+import com.riceliker.ExplainMagic.ExplainMagic;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -16,7 +16,7 @@ public class ItemRegistry
         registerItem("mod_icon_item", mod_icon_item);
     }
     private static void registerItem(String name, Item item) {
-        Registry.register(Registries.ITEM, new Identifier(Explain_Magic.MOD_ID, name), item);
+        Registry.register(Registries.ITEM, new Identifier(ExplainMagic.MOD_ID, name), item);
     }
     // <---Item Information--->
     // Mod icon item only an image, not an item which you can get.

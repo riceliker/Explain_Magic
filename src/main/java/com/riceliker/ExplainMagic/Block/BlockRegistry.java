@@ -7,7 +7,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
-import static com.riceliker.ExplainMagic.Explain_Magic.MOD_ID;
+import static com.riceliker.ExplainMagic.ExplainMagic.MOD_ID;
 
 public class BlockRegistry
 {
@@ -18,7 +18,7 @@ public class BlockRegistry
         registryBlock("enrichment_core_ore",enrichment_core_ore);
         registryBlock("enrichment_core_block",enrichment_core_block);
         registryBlock("compressed_bme_block",compressed_bme_block);
-        registryBlock("bme_collection_machine",bme_block);
+
     }
     public static void registryBlock(String name,Block block)
     {
@@ -47,12 +47,7 @@ public class BlockRegistry
                     .requiresTool()
 
     );
-    public static final Block bme_block =
-            new FacingPlayerBlock(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.DRIPSTONE_BLOCK)
-                    .strength(1.0F, 3.0F)
 
-    );
 
 
 }
