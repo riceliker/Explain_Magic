@@ -6,15 +6,17 @@ import net.minecraft.util.Identifier;
 
 import static com.riceliker.ExplainMagic.ExplainMagic.MOD_ID;
 
-public class SendBCMGUI implements CustomPayload
+public class OpenBCMGUIPackage implements CustomPayload
 {
-    public static final Id<SendBCMGUI> ID = new Id<>(new Identifier(MOD_ID, "send_bcm_gui"));
+    public static final Id<OpenBCMGUIPackage> ID = new Id<>(new Identifier(MOD_ID, "send_bcm_gui"));
 
-    public static SendBCMGUI decode(PacketByteBuf buf) {
-        return new SendBCMGUI();
+    public static OpenBCMGUIPackage decode(PacketByteBuf buf)
+    {
+        return new OpenBCMGUIPackage();
     }
 
-    public static void encode(SendBCMGUI packet, PacketByteBuf buf) {
+    public static void encode(OpenBCMGUIPackage packet, PacketByteBuf buf)
+    {
     }
 
     @Override
@@ -25,4 +27,11 @@ public class SendBCMGUI implements CustomPayload
     public void write(PacketByteBuf buf) {
         encode(this, buf);
     }
+
+    public OpenBCMGUIPackage()
+    {
+
+    }
+
+
 }

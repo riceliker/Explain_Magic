@@ -8,11 +8,12 @@ public class GetBCMGUI
     public GetBCMGUI()
     {
         ClientPlayNetworking.registerGlobalReceiver(
-                SendBCMGUI.ID,
+                OpenBCMGUIPackage.ID,
                 (payload, context) -> {
                     // 必须切换到客户端主线程处理GUI
                     context.client().execute(() -> {
                         MinecraftClient client = MinecraftClient.getInstance();
+                        System.out.println("get");
                         client.setScreen(new BCMScreen());
                     });
                 }

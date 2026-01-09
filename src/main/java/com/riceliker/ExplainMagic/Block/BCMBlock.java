@@ -18,7 +18,9 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class BCMBlock extends BlockWithEntity {
+public class BCMBlock extends BlockWithEntity
+{
+    public PlayerEntity player;
     public static final DirectionProperty facing = Properties.HORIZONTAL_FACING;
 
     public BCMBlock(AbstractBlock.Settings settings) {
@@ -55,20 +57,26 @@ public class BCMBlock extends BlockWithEntity {
     }
     // When player right check.
     @Override
-    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit)
+    {
+        this.player = player;
         if (world.isClient) {
             return ActionResult.SUCCESS;
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof BCMBlockEntity bcmBlockEntity) {
             //<---Code will run when player right click--->
-            bcmBlockEntity.addCustomData(1);
+            bcmBlockEntity.setPlayer(player);
             if (player instanceof ServerPlayerEntity serverPlayer) {
+                System.out.println("send");
                 // HERE => Network
                 NetworkRegistry.sendMessage("BCMGUI",serverPlayer);
+
             }
         }
 
         return ActionResult.CONSUME;
     }
+
+
 }
