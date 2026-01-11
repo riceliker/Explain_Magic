@@ -6,14 +6,15 @@ import net.minecraft.item.Items;
 
 import java.util.HashMap;
 import java.util.Map;
+/*
+    There are tell you what item can be fired.
+ */
 
 public class FuelHelper {
-    // 原版燃料列表（Key:物品实例，Value:燃烧时间（刻））
     private static final Map<Item, Integer> FUEL_MAP = new HashMap<>();
 
-    // 静态代码块初始化燃料列表（只加载一次，性能最优）
     static {
-        // 1. 木质工具/物品
+
         FUEL_MAP.put(Items.STICK, 100);
         FUEL_MAP.put(Items.WOODEN_PICKAXE, 200);
         FUEL_MAP.put(Items.WOODEN_AXE, 200);
@@ -36,32 +37,26 @@ public class FuelHelper {
         FUEL_MAP.put(Items.JUNGLE_BOAT, 1200);
         FUEL_MAP.put(Items.SPRUCE_BOAT, 1200);
 
-        // 2. 煤炭/木炭类
+
         FUEL_MAP.put(Items.COAL, 1600);
         FUEL_MAP.put(Items.CHARCOAL, 1600);
         FUEL_MAP.put(Items.COAL_BLOCK, 16000);
 
-        // 3. 烈焰/岩浆类
+
         FUEL_MAP.put(Items.BLAZE_ROD, 2400);
         FUEL_MAP.put(Items.LAVA_BUCKET, 20000);
 
-        // 4. 其他燃料
+
         FUEL_MAP.put(Items.BAMBOO, 50);
         FUEL_MAP.put(Items.SCAFFOLDING, 100);
         FUEL_MAP.put(Items.HAY_BLOCK, 3000);
         FUEL_MAP.put(Items.DRIED_KELP_BLOCK, 4000);
     }
 
-    // ===================== 核心方法 =====================
     public static boolean isFuel(Item item) {
         return FUEL_MAP.containsKey(item);
     }
 
-    /**
-     * 获取物品的燃烧时间（单位：刻，1秒=20刻）
-     * @param stack 物品栈
-     * @return 燃烧时间（刻），非燃料返回0
-     */
     public static int getBurnTimeInTicks(ItemStack stack) {
         if (stack.isEmpty()) {
             return 0;
@@ -69,21 +64,11 @@ public class FuelHelper {
         return FUEL_MAP.getOrDefault(stack.getItem(), 0);
     }
 
-    /**
-     * 转换燃烧时间为秒（更易读）
-     * @param stack 物品栈
-     * @return 燃烧时间（秒，保留1位小数）
-     */
     public static double getBurnTimeInSeconds(ItemStack stack) {
         int ticks = getBurnTimeInTicks(stack);
         return (double) ticks / 20;
     }
 
-    /**
-     * 扩展方法：添加自定义燃料（支持模组新增燃料）
-     * @param item 自定义物品
-     * @param burnTimeTicks 燃烧时间（刻）
-     */
     public static void addCustomFuel(Item item, int burnTimeTicks) {
         FUEL_MAP.put(item, burnTimeTicks);
     }

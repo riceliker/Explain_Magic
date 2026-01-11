@@ -1,16 +1,18 @@
-package com.riceliker.ExplainMagic.Block;
+package com.riceliker.ExplainMagic.BlockEntity;
 
 import com.mojang.serialization.MapCodec;
-import com.riceliker.ExplainMagic.BlockEntity.BCMBlockEntity;
-import com.riceliker.ExplainMagic.Network.NetworkRegistry;
+import com.riceliker.ExplainMagic.ScreenHandler.BCMGUIHandler;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -57,26 +59,21 @@ public class BCMBlock extends BlockWithEntity
     }
     // When player right check.
     @Override
-    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit)
-    {
-        this.player = player;
-        if (world.isClient) {
-            return ActionResult.SUCCESS;
-        }
-        BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof BCMBlockEntity bcmBlockEntity) {
-            //<---Code will run when player right click--->
-            bcmBlockEntity.setPlayer(player);
-            if (player instanceof ServerPlayerEntity serverPlayer) {
-                System.out.println("send");
-                // HERE => Network
-                NetworkRegistry.sendMessage("BCMGUI",serverPlayer);
-
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (!world.isClient) {
+            BCMBlockEntity be = BCMBlockEntity.getFromWorld(world, pos);
+            if (be != null) {
+                player.openHandledScreen(new SimpleNamedScreenHandlerFactory(
+                        (syncId, inventory, playerEntity) -> new BCMGUIHandler(
+                                syncId,
+                                inventory,
+                                ScreenHandlerContext.create(world, pos) // 绑定方块位置
+                        ),
+                        Text.of("BME Collection Machine")
+                ));
             }
         }
-
-        return ActionResult.CONSUME;
+        return ActionResult.SUCCESS;
     }
-
 
 }

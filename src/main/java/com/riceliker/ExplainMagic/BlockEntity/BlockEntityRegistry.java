@@ -1,6 +1,5 @@
 package com.riceliker.ExplainMagic.BlockEntity;
 
-import com.riceliker.ExplainMagic.Block.BCMBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;

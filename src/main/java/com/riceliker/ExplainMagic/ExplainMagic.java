@@ -4,7 +4,8 @@ import com.riceliker.ExplainMagic.Block.BlockRegistry;
 import com.riceliker.ExplainMagic.BlockEntity.BlockEntityRegistry;
 import com.riceliker.ExplainMagic.CreativeTab.CreativeTab;
 import com.riceliker.ExplainMagic.Item.ItemRegistry;
-import com.riceliker.ExplainMagic.Network.NetworkRegistry;
+import com.riceliker.ExplainMagic.Network.NetworkManager;
+import com.riceliker.ExplainMagic.ScreenHandler.ScreenHandlerRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.data.server.recipe.RecipeExporter;
 
@@ -22,7 +23,7 @@ public class ExplainMagic implements ModInitializer {
 		new BlockRegistry();
 		new BlockEntityRegistry();
 		new CreativeTab();
-		new NetworkRegistry();
-
+		new ScreenHandlerRegistry();
+		//NetworkManager.registerServerPackets();
 	}
 }

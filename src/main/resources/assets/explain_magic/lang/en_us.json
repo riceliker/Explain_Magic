@@ -5,5 +5,10 @@
   "block.explain_magic.enrichment_core_block": "Enrichment Core Block",
   "block.explain_magic.compressed_bme_block": "Compressed BME Core Block",
   "block.explain_magic.bme_collection_machine": "BME Collection Machine",
+  "gui.bcm.explain_magic.bme_collection_machine": "BME Collection Machine",
+  "gui.bcm.explain_magic.collection_stage": "Collection Stage: %d %",
+  "gui.bcm.explain_magic.information": "Information:",
+  "gui.bcm.explain_magic.power_storage": "Power Storage:",
+  "gui.bcm.explain_magic.enrichment": "Enrichment Speed:",
   "itemGroup.explain_magic.custom_tab": "Explain Magic"
 }
