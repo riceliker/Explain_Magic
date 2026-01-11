@@ -1,26 +1,16 @@
 package com.riceliker.ExplainMagic.BlockEntity;
 
-import com.riceliker.ExplainMagic.ScreenHandler.BCMGUIHandler;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static com.riceliker.ExplainMagic.BlockEntity.BlockEntityRegistry.bme_block_entity_type;
@@ -61,9 +51,13 @@ public class BCMBlockEntity extends BlockEntity
         return block_pos_get_value.get(pos).get(key);
     }
     //<---Network--->
-//    public static void handleData(BlockPos pos, Map<String, Integer> dataPage)
-//    {
-//        block_pos_get_value.put(pos, dataPage);
-//    }
+    public static void handleData(BlockPos pos, int cbcc, int pn, int es)
+    {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("create_bme_core_count",cbcc);
+        map.put("power_number",pn);
+        map.put("enrichment_speed",es);
+        block_pos_get_value.put(pos, map);
+    }
 
 }

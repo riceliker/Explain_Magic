@@ -4,21 +4,16 @@ import com.riceliker.ExplainMagic.GUI.ScreenUnit;
 import com.riceliker.ExplainMagic.HashMap.EnrichmentHelper;
 import com.riceliker.ExplainMagic.HashMap.FuelHelper;
 import com.riceliker.ExplainMagic.Item.ItemRegistry;
-import com.riceliker.ExplainMagic.Network.NetworkManager;
+import com.riceliker.ExplainMagic.Network.BCMBlockEntityUpdateC2SPayload;
 import com.riceliker.ExplainMagic.ScreenHandler.BCMGUIHandler;
-import net.minecraft.block.BlockState;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static com.riceliker.ExplainMagic.ExplainMagic.MOD_ID;
 
@@ -57,7 +52,7 @@ public class BCMGUI extends ScreenUnit<BCMGUIHandler> {
         drawInformationTable(context);
         whatItemPutSlot(context);
         drawWorkTable(context);
-        //sendBlockEntityUpdateToServerFuc();
+        sendBlockEntityUpdateToServerFuc();
     }
 
 
@@ -138,24 +133,6 @@ public class BCMGUI extends ScreenUnit<BCMGUIHandler> {
     public void sendBlockEntityUpdateToServerFuc()
     {
         BlockPos pos = BCMGUIHandler.getBlockPos();
-        HashMap<String,Integer> map = new HashMap<>();
-        map.put("create_bme_core_number",this.create_bme_core_number);
-        map.put("enrichment_speed",this.enrichment_speed);
-        map.put("power_storage",this.power_number);
-        sendBlockEntityUpdateToServer(pos, map);
-    }
-    public void sendBlockEntityUpdateToServer(BlockPos pos, HashMap<String, Integer> map)
-    {
-        map.put("create_bme_core_number",this.create_bme_core_number);
-        map.put("enrichment_speed",this.enrichment_speed);
-        map.put("power_storage",this.power_number);
-        try {
-            // 创建数据包
-            NetworkManager.BlockEntityUpdatePayload payload = new NetworkManager.BlockEntityUpdatePayload(pos, map);
-            // 发送数据包（Fabric封装的简洁API）
-            ClientPlayNetworking.send(payload);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        ClientPlayNetworking.send(new BCMBlockEntityUpdateC2SPayload(pos, create_bme_core_number, power_number, enrichment_speed));
     }
 }
