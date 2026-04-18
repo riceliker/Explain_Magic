@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "explain_magic:block/enrichment_core_block"
+  }
+}

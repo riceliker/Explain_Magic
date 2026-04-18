@@ -1,0 +1,14 @@
+{
+  "item.explain_magic.compressed_bme_core": "压缩BME核心",
+  "item.explain_magic.enrichment_core": "富集核心",
+  "block.explain_magic.compressed_bme_block": "压缩BME核心方块",
+  "block.explain_magic.enrichment_core_block": "富集核心方块",
+  "block.explain_magic.enrichment_core_ore": "富集核心原矿",
+  "block.explain_magic.bme_collection_machine": "BME收集机器",
+  "gui.bcm.explain_magic.bme_collection_machine": "BME收集机器界面",
+  "gui.bcm.explain_magic.collection_stage": "收集进度：",
+  "gui.bcm.explain_magic.enrichment": "富集速率：",
+  "gui.bcm.explain_magic.information": "信息：",
+  "gui.bcm.explain_magic.power_storage": "能量存储量：",
+  "itemGroup.explain_magic.custom_tab": "解析法术学"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "explain_magic:compressed_bme_core"
+    }
+  },
+  "result": {
+    "id": "explain_magic:compressed_bme_block",
+    "count": 1
+  }
+}

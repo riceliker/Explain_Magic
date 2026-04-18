@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "explain_magic:block/bme_collection_machine", "y":180 },
+    "facing=south": { "model": "explain_magic:block/bme_collection_machine", "y": 0 },
+    "facing=east": { "model": "explain_magic:block/bme_collection_machine", "y": 270 },
+    "facing=west": { "model": "explain_magic:block/bme_collection_machine", "y": 90 }
+  }
+}

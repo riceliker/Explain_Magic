@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "explain_magic:enrichment_core_block"
+    }
+  ],
+  "result": {
+    "id": "explain_magic:enrichment_core",
+    "count": 9
+  }
+}

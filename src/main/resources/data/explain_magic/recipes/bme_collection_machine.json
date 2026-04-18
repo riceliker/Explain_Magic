@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "CPC",
+    "SSS"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:furnace"
+    },
+    "C": {
+      "item": "explain_magic:enrichment_core"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "id": "explain_magic:bme_collection_machine",
+    "count": 1
+  }
+}
